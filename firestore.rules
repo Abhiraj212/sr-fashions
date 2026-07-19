@@ -1,0 +1,37 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null &&
+        request.auth.token.email == "skatoch829@gmail.com";
+    }
+
+    // All site content (hero, services, gallery, testimonials, about, faq,
+    // settings) is publicly readable — the whole point is visitors see it —
+    // and writable only by the one admin account.
+    match /content/{domain} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Contact form submissions: anyone can submit (create), but only the
+    // admin can read them back (in the admin Inquiries page) or change
+    // their status. No update/delete for the public — a submitted inquiry
+    // can't be edited or erased by whoever sent it.
+    match /inquiries/{inquiryId} {
+      allow create: if request.resource.data.keys().hasAll(["name", "phone", "message", "createdAt", "status"])
+        && request.resource.data.status == "new";
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Newsletter signups: same pattern as inquiries — anyone can submit,
+    // only the admin can read the list back.
+    match /newsletter/{signupId} {
+      allow create: if request.resource.data.keys().hasAll(["email", "createdAt"]);
+      allow read, delete: if isAdmin();
+      allow update: if false;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About & FAQ — Admin — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>About &amp; FAQ</h1>
+      <p class="subtitle">Your story, mission/vision, and the FAQ list on the About page.</p>
+
+      <form id="about-form" class="mt-8">
+        <div class="field"><label for="story">Our story</label><textarea id="story" rows="5"></textarea></div>
+        <div class="field"><label for="ownerIntro">Founder introduction</label><textarea id="ownerIntro" rows="3"></textarea></div>
+        <div class="grid-2">
+          <div class="field"><label for="mission">Mission</label><textarea id="mission" rows="3"></textarea></div>
+          <div class="field"><label for="vision">Vision</label><textarea id="vision" rows="3"></textarea></div>
+        </div>
+        <div class="field"><label for="yearsOfExperience">Years of experience</label><input id="yearsOfExperience" type="number" /></div>
+
+        <div class="field">
+          <label>Why customers trust us (one per line)</label>
+          <textarea id="whyTrustUs" rows="4"></textarea>
+        </div>
+
+        <div class="save-bar">
+          <button type="submit" class="btn btn-primary"><span id="submit-text">Save About</span></button>
+        </div>
+      </form>
+
+      <div class="card mt-8"><div class="card-body">
+        <h3 style="font-size:1.125rem;">Add an FAQ</h3>
+        <form id="faq-form" class="mt-4">
+          <div class="field"><label for="new-q">Question</label><input id="new-q" required /></div>
+          <div class="field"><label for="new-a">Answer</label><textarea id="new-a" rows="2" required></textarea></div>
+          <button type="submit" class="btn btn-secondary">Add FAQ</button>
+        </form>
+      </div></div>
+
+      <div id="faq-list" class="mt-6"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-about.js"></script>
+</body>
+</html>

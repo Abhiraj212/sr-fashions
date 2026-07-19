@@ -1,0 +1,95 @@
+/* SR Fashions — Design Tokens
+   Same system as frontend/DESIGN.md: Wine/Antique Gold/Ivory Silk palette,
+   Fraunces display + Manrope body + IBM Plex Mono for measured facts
+   (prices, measurements, order numbers). See that file for the full
+   rationale — this is the plain-CSS implementation of the same tokens. */
+
+:root {
+  /* Colors */
+  --color-ink: #241b1e;
+  --color-wine: #7a1f2b;
+  --color-wine-dark: #5c1620;
+  --color-wine-light: #9c2e3b;
+  --color-gold: #b8860b;
+  --color-gold-light: #d4a72c;
+  --color-ivory: #f3eae0;
+  --color-sage: #6b7a5e;
+  --color-charcoal: #2a2422;
+  --color-white: #ffffff;
+  --color-danger: #b91c1c;
+  --color-danger-bg: #fee2e2;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Spacing / radius / shadow */
+  --radius-sm: 0.25rem;
+  --radius: 0.375rem;
+  --radius-lg: 0.5rem;
+  --shadow-card: 0 1px 2px rgba(36, 27, 30, 0.06), 0 4px 16px rgba(36, 27, 30, 0.04);
+  --container-max: 72rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}

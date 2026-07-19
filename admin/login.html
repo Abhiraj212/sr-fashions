@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body style="background:var(--color-ink); min-height:100vh; display:flex; align-items:center; justify-content:center;">
+  <div style="width:100%; max-width:24rem; padding:1.5rem;">
+    <div class="card">
+      <div class="card-body">
+        <p style="font-family:var(--font-display); font-size:1.5rem; font-weight:600;">SR Fashions</p>
+        <p class="text-muted">Admin sign in</p>
+        <span class="stitch"></span>
+
+        <form id="login-form" class="mt-6">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required autocomplete="username" />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" required autocomplete="current-password" />
+          </div>
+          <div id="error" class="field" style="display:none;">
+            <span class="error-text"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            <span id="btn-text">Sign in</span>
+          </button>
+        </form>
+
+        <p class="mt-4 text-muted" style="font-size:0.8rem;">
+          First time? <a href="/admin/register.html" class="text-wine">Set up the admin account</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { login } from "/js/admin/auth.js";
+
+    const form = document.getElementById("login-form");
+    const errorBox = document.getElementById("error");
+    const btnText = document.getElementById("btn-text");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorBox.style.display = "none";
+      btnText.textContent = "Signing in…";
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        await login(email, password);
+        window.location.href = "/admin/dashboard.html";
+      } catch (err) {
+        errorBox.style.display = "block";
+        errorBox.querySelector(".error-text").textContent = "Incorrect email or password.";
+        btnText.textContent = "Sign in";
+      }
+    });
+  </script>
+</body>
+</html>

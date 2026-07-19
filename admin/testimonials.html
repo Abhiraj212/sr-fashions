@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials — Admin — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>Testimonials</h1>
+      <p class="subtitle">Customer reviews shown on the homepage.</p>
+
+      <div class="card mt-8"><div class="card-body">
+        <h3 style="font-size:1.125rem;">Add a testimonial</h3>
+        <form id="add-form" class="mt-4">
+          <div class="grid-2">
+            <div class="field"><label for="new-name">Customer name</label><input id="new-name" required /></div>
+            <div class="field"><label for="new-location">Location</label><input id="new-location" required /></div>
+            <div class="field">
+              <label for="new-rating">Rating</label>
+              <select id="new-rating">
+                <option value="5">5 stars</option>
+                <option value="4">4 stars</option>
+                <option value="3">3 stars</option>
+              </select>
+            </div>
+            <div class="field"><label for="new-occasion">Occasion</label><input id="new-occasion" placeholder="e.g. Bridal Wear" required /></div>
+          </div>
+          <div class="field"><label for="new-quote">Quote</label><textarea id="new-quote" rows="3" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Add testimonial</button>
+        </form>
+      </div></div>
+
+      <div id="testimonials-list" class="mt-8"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-testimonials.js"></script>
+</body>
+</html>

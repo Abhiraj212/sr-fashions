@@ -1,0 +1,127 @@
+/* ===== Header ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(243, 234, 224, 0.95);
+  backdrop-filter: blur(6px);
+}
+.measuring-tape {
+  height: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; }
+.brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--color-ink); text-decoration: none; }
+.brand .tag {
+  margin-left: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-wine);
+  vertical-align: middle;
+}
+.nav-links { display: none; gap: 1.5rem; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(36, 27, 30, 0.8);
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--color-wine); }
+
+/* ===== Hero ===== */
+.hero {
+  border-bottom: 1px solid rgba(36, 27, 30, 0.1);
+  padding: 5rem 0;
+}
+.hero .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-wine);
+}
+.hero h1 {
+  margin-top: 1rem;
+  max-width: 40rem;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+@media (min-width: 640px) { .hero h1 { font-size: 3.75rem; } }
+.hero p {
+  margin-top: 1.5rem;
+  max-width: 28rem;
+  font-size: 1.125rem;
+  color: rgba(42, 36, 34, 0.8);
+}
+.hero .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ===== Section ===== */
+.section { padding: 5rem 0; }
+.section-dark { background: var(--color-ink); color: var(--color-ivory); padding: 5rem 0; }
+.section .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-wine);
+}
+.section-dark .eyebrow { color: var(--color-gold); }
+.section h2 { margin-top: 0.5rem; font-size: 2rem; font-weight: 600; }
+@media (min-width: 640px) { .section h2 { font-size: 2.25rem; } }
+
+/* ===== Footer ===== */
+.site-footer { margin-top: 6rem; background: var(--color-ink); color: var(--color-ivory); }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 1rem 0 3rem; }
+@media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+.footer-grid h4 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+.footer-grid p { margin-top: 0.75rem; font-size: 0.875rem; color: rgba(243, 234, 224, 0.7); }
+.footer-bottom { border-top: 1px solid rgba(243, 234, 224, 0.1); padding: 1rem 0; font-size: 0.75rem; color: rgba(243, 234, 224, 0.5); }
+
+/* ===== Gallery grid ===== */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 2.5rem; }
+@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+.gallery-item { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: var(--radius); background: rgba(36, 27, 30, 0.05); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ===== Reviews ===== */
+.review-stars { color: var(--color-gold); letter-spacing: 0.1em; }
+
+/* ===== Order tracker steps ===== */
+.status-steps { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.status-steps li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; }
+.status-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(36, 27, 30, 0.15); flex-shrink: 0; }
+.status-dot.done { background: var(--color-wine); }
+.status-label { color: rgba(42, 36, 34, 0.4); }
+.status-label.done { color: var(--color-ink); font-weight: 500; }
+
+/* ===== Install banner ===== */
+.install-banner {
+  position: fixed;
+  left: 1rem; right: 1rem; bottom: 1rem;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-card);
+}
+@media (min-width: 640px) { .install-banner { left: auto; width: 20rem; } }
+.install-banner.visible { display: flex; }

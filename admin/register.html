@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Setup — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body style="background:var(--color-ink); min-height:100vh; display:flex; align-items:center; justify-content:center;">
+  <div style="width:100%; max-width:24rem; padding:1.5rem;">
+    <div class="card">
+      <div class="card-body">
+        <p style="font-family:var(--font-display); font-size:1.5rem; font-weight:600;">SR Fashions</p>
+        <p class="text-muted">First-time admin setup</p>
+        <span class="stitch"></span>
+        <p class="text-muted" style="font-size:0.8rem;">
+          This creates the one admin account for this site. It only works for
+          the email address the site is configured to trust — run this once,
+          then use <a href="/admin/login.html" class="text-wine">Login</a> after.
+        </p>
+
+        <form id="register-form" class="mt-6">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required autocomplete="username" />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" required minlength="8" autocomplete="new-password" />
+            <span class="hint-text">At least 8 characters.</span>
+          </div>
+          <div id="error" class="field" style="display:none;">
+            <span class="error-text"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            <span id="btn-text">Create admin account</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { register } from "/js/admin/auth.js";
+
+    const form = document.getElementById("register-form");
+    const errorBox = document.getElementById("error");
+    const btnText = document.getElementById("btn-text");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorBox.style.display = "none";
+      btnText.textContent = "Creating…";
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        await register(email, password);
+        window.location.href = "/admin/dashboard.html";
+      } catch (err) {
+        errorBox.style.display = "block";
+        errorBox.querySelector(".error-text").textContent =
+          err.code === "auth/email-already-in-use"
+            ? "This account already exists — use Login instead."
+            : err.message;
+        btnText.textContent = "Create admin account";
+      }
+    });
+  </script>
+</body>
+</html>

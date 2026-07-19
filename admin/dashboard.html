@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>Dashboard</h1>
+      <p class="subtitle">Everything here is live on the public site as soon as you save.</p>
+
+      <div class="grid-3 mt-8">
+        <div class="card"><div class="card-body">
+          <p class="subtitle">New inquiries</p>
+          <p id="stat-inquiries" style="font-size:1.75rem; font-family:var(--font-display); font-weight:600;">–</p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <p class="subtitle">Gallery items</p>
+          <p id="stat-gallery" style="font-size:1.75rem; font-family:var(--font-display); font-weight:600;">–</p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <p class="subtitle">Services listed</p>
+          <p id="stat-services" style="font-size:1.75rem; font-family:var(--font-display); font-weight:600;">–</p>
+        </div></div>
+      </div>
+
+      <div class="card mt-8"><div class="card-body">
+        <h3 style="font-size:1.125rem;">Quick links</h3>
+        <p class="subtitle mt-2">Jump straight to what you're editing today.</p>
+        <div class="mt-4" style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <a href="/admin/hero.html" class="btn btn-secondary btn-sm">Edit Hero</a>
+          <a href="/admin/gallery.html" class="btn btn-secondary btn-sm">Upload Photos</a>
+          <a href="/admin/inquiries.html" class="btn btn-secondary btn-sm">View Inquiries</a>
+          <a href="/index.html" class="btn btn-secondary btn-sm" target="_blank">View Live Site ↗</a>
+        </div>
+      </div></div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-dashboard.js"></script>
+</body>
+</html>

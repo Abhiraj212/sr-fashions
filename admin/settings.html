@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — Admin — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>Settings</h1>
+      <p class="subtitle">Feeds the header, footer, and floating buttons on every page — edit once, updates everywhere.</p>
+
+      <form id="settings-form" class="mt-8">
+        <div class="grid-2">
+          <div class="field"><label for="brandName">Brand name</label><input id="brandName" /></div>
+          <div class="field"><label for="boutiqueName">Boutique name</label><input id="boutiqueName" /></div>
+          <div class="field"><label for="tagline">Tagline</label><input id="tagline" /></div>
+          <div class="field"><label for="established">Established (year)</label><input id="established" type="number" /></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field"><label for="email">Email</label><input id="email" type="email" /></div>
+          <div class="field"><label for="phonePrimary">Primary phone (display)</label><input id="phonePrimary" /></div>
+          <div class="field"><label for="phonePrimaryRaw">Primary phone (digits only, for tel:/WhatsApp links)</label><input id="phonePrimaryRaw" /></div>
+          <div class="field"><label for="phoneSecondary">Secondary phone (display)</label><input id="phoneSecondary" /></div>
+        </div>
+
+        <div class="field"><label for="address">Address</label><textarea id="address" rows="2"></textarea></div>
+        <div class="field"><label for="hours">Business hours</label><input id="hours" /></div>
+
+        <div class="save-bar">
+          <button type="submit" class="btn btn-primary"><span id="submit-text">Save settings</span></button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-settings.js"></script>
+</body>
+</html>

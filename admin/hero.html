@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Hero — Admin — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>Hero Section</h1>
+      <p class="subtitle">The first thing visitors see on the homepage.</p>
+
+      <form id="hero-form" class="mt-8">
+        <div class="field"><label for="eyebrow">Eyebrow text</label><input id="eyebrow" /></div>
+        <div class="field"><label for="headline">Headline</label><input id="headline" /></div>
+        <div class="field"><label for="subheadline">Subheadline</label><input id="subheadline" /></div>
+        <div class="field"><label for="description">Description</label><textarea id="description" rows="3"></textarea></div>
+
+        <div class="grid-2">
+          <div class="field"><label for="primaryCtaLabel">Primary button text</label><input id="primaryCtaLabel" /></div>
+          <div class="field"><label for="primaryCtaHref">Primary button link</label><input id="primaryCtaHref" /></div>
+          <div class="field"><label for="secondaryCtaLabel">Secondary button text</label><input id="secondaryCtaLabel" /></div>
+          <div class="field"><label for="secondaryCtaHref">Secondary button link</label><input id="secondaryCtaHref" /></div>
+        </div>
+
+        <div class="field">
+          <label>Background image</label>
+          <img id="bg-preview" class="image-preview" />
+          <input id="bg-file" type="file" accept="image/*" />
+          <span class="hint-text">Uploading a new image replaces the current one.</span>
+        </div>
+
+        <div class="save-bar">
+          <button type="submit" class="btn btn-primary"><span id="submit-text">Save changes</span></button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-hero.js"></script>
+</body>
+</html>

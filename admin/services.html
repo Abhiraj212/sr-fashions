@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Admin — SR Fashions</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside id="admin-sidebar" class="admin-sidebar"></aside>
+    <main class="admin-main">
+      <h1>Services</h1>
+      <p class="subtitle">Shown on the homepage and the full Services page.</p>
+
+      <div class="card mt-8"><div class="card-body">
+        <h3 style="font-size:1.125rem;">Add a service</h3>
+        <form id="add-form" class="mt-4">
+          <div class="field"><label for="new-title">Title</label><input id="new-title" required /></div>
+          <div class="field"><label for="new-desc">Short description</label><textarea id="new-desc" rows="2" required></textarea></div>
+          <div class="field"><label for="new-file">Photo (optional)</label><input id="new-file" type="file" accept="image/*" /></div>
+          <button type="submit" class="btn btn-primary"><span id="add-btn-text">Add service</span></button>
+        </form>
+      </div></div>
+
+      <div id="services-list" class="mt-8"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/pages/admin-services.js"></script>
+</body>
+</html>
